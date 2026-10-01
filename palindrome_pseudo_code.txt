@@ -1,0 +1,18 @@
+CONSTANTE LIGNES := 4
+CONSTANTE COLONNES := 6
+
+FONCTION addition_matrice (mat_1: entrée, mat_2: entrée, somme: sortie)
+    // Additionne 2 matrices de tailles identiques et stock le résultat dans la matrice somme
+	// mat_1 (matrice d'entier): première matrice à additionner
+	// mat_2 (matrice d'entier): deuxième matrice à additionner
+	// somme (matrice d'entier): matrice résultante
+DÉBUT
+    // m (entier): compteur de lignes
+    // n (entier): compteur de colonnes
+
+    POUR m := 0 À LIGNES - 1 FAIRE
+        POUR n := 0 À COLONNES - 1 FAIRE
+            somme[m][n] := mat_1[m][n] + mat_2[m][n]
+        FIN POUR
+    FIN POUR
+FIN

@@ -1,0 +1,19 @@
+FONCTION palindrome (chaine_caractere): palindrome
+    // Détermine si la chaîne de caractère en paramètre est un palindrome
+	// chaine_caractere (tableau de caractère): la chaîne a chercher
+    // palindrome (booléen): si le mot est un palindrome
+DÉBUT
+    // compteur (entier): compteur de boucle
+    // longueur (entier): longueur du mot
+    longueur := 0
+    compteur := 0
+    palindrome := vrai
+
+    TANT QUE chaine_caractere[longueur] n'est pas égal au caractère de fin de chaîne
+        Incrémenter longueur
+
+    TANT QUE compteur est plus petit que longueur/2 ET palindrome
+        palindrome := chaine_caractere[compteur] est égal à chaine_caractere[longueur - compteur]
+
+    Retourner palindrome
+FIN

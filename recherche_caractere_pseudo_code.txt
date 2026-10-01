@@ -1,0 +1,21 @@
+FONCTION recherche_caractere (caractere, chaine_caractere): position
+    // Trouve la première position d'un caractère dans une chaîne de caractère
+    // caractere (caractère) : le caractère à trouver
+	// chaine_caractere (tableau de caractère): la chaîne a chercher
+    // position (entier): la première position du caractère à chercher
+DÉBUT
+    // compteur (entier): compteur de boucle
+    // position (entier): position du caractère dans la chaîne
+    // trouve (booléen): sortie de boucle
+    compteur := 0
+    position := -1
+    trouve := faux
+
+    TANT QUE chaine_caractere[compteur] n'est pas égal au caractère de fin de chaîne ET trouve est faux
+        SI caractere est égal à chaine_caractere[compteur] ALORS
+            position := compteur
+            trouve := vrai
+        Incrémenter compteur
+    
+    Retourner position
+FIN
