@@ -5,46 +5,47 @@ Description: operation qui permet de multiplier 2 matrices carrees
 Historique des modifications
 2026-09-29
 	- Auteurices: Eva Desbiens, Xavier Dupuis
-	- Première version.
+	- Premiere version.
+2026-10-01
+	- Auteurices: Eva Desbiens, Xavier Dupuis
+	- Modification de la fonction afficher_matrice.
 --------------------------------------------------------------------*/
 
 #include <stdio.h>
-#define DIMENSION 4
+#define N 4
 
 /*--------------------------------------------------------------------
 Description: multiplie les 2 premieres matrices passees en parametre
 	et retourne	le resultat dans la troisieme matrice.
-Paramètres:
+Parametres:
 	- mat_1 (matrice d'entier): premiere matrice a additionner
 	- mat_2 (matrice d'entier): deuxieme matrice a additionner
 	- produit (matrice d'entier): matrice resultante
 
-Préconditions: mat_1, mat_2 et produit sont des matrices distinctes.
+Preconditions: mat_1, mat_2 et produit sont des matrices distinctes.
 
 Postconditions: mat_1 et mat_2 ne sont pas modifiees.
 	produit contient le resultat du produit de matrice.
 --------------------------------------------------------------------*/
-void multiplication_matrice(int mat_1[DIMENSION][DIMENSION], int mat_2[DIMENSION][DIMENSION], int produit[DIMENSION][DIMENSION])
-{
-	int m, n, compteur;
-	
-	// initialiser la matrice de somme à 0 pour se débarasser du garbage en mémoire
-	for (m = 0; m < DIMENSION; ++m)
+void multiplication_matrice(int matrice_1[N][N], int matrice_2[N][N], int matrice_resultat[N][N])
+{ 
+	int ligne;
+	int colonne;
+	int element;
+	int somme = 0;
+	// Pour chaque ligne, on parcourt chaque colonne 
+	for ( ligne = 0; ligne < N ; ligne++ )
 	{
-		for (n = 0; n < DIMENSION; ++n) 
+		for ( colonne = 0; colonne < N; colonne++ )
 		{
-			produit[m][n] = 0;
-		}
-	}
-	
-	for (m = 0; m < DIMENSION; ++m)
-	{
-		for (n = 0; n < DIMENSION; ++n) 
-		{
-			for (compteur = 0; compteur < DIMENSION; ++compteur)
+			// On multiplie chaque elements correspondants
+			for ( element = 0; element < N; element++)
 			{
-				produit[m][n] = produit[m][n] + mat_1[m][compteur] * mat_2[compteur][n];
+				somme = somme + matrice_1[ligne][element] * matrice_2[element][colonne];
 			}
+			// Les elements de la matrice resultat sont modifies
+			matrice_resultat[ligne][colonne] = somme;
+			somme = 0;
 		}
 	}
 }
@@ -52,20 +53,20 @@ void multiplication_matrice(int mat_1[DIMENSION][DIMENSION], int mat_2[DIMENSION
 /*--------------------------------------------------------------------
 Description: affiche une matrice a l'ecran
 
-Paramètres:
+Parametres:
 	- m (matrice d'entier): matrice a afficher
 
-Préconditions: aucune
+Preconditions: aucune
 	
 Postconditions: m n'est pas modifiee.
 --------------------------------------------------------------------*/
-void afficher_matrice(int m[DIMENSION][DIMENSION])
+void afficher_matrice(int m[N][N])
 {
 	int ligne, colonne;
 	
-	for (ligne = 0; ligne < DIMENSION; ++ligne)
+	for (ligne = 0; ligne < N; ++ligne)
 	{
-		for (colonne = 0; colonne < DIMENSION; ++colonne)
+		for (colonne = 0; colonne < N; ++colonne)
 		{
 			printf("%d\t", m[ligne][colonne]);
 		}
@@ -75,16 +76,16 @@ void afficher_matrice(int m[DIMENSION][DIMENSION])
 
 int main(int argc, char **argv)
 {
-	int m1[DIMENSION][DIMENSION] = {{1, 1, 1, 1},
+	int m1[N][N] = {{1, 1, 1, 1},
 									{2, 2, 2, 2},
 									{3, 3, 3, 3},
 									{4, 4, 4, 4}};
 								
-	int m2[DIMENSION][DIMENSION] = {{1, 1, 1, 1},
+	int m2[N][N] = {{1, 1, 1, 1},
 									{2, 2, 2, 2},
 									{3, 3, 3, 3},
 									{4, 4, 4, 4}};
-	int m3[DIMENSION][DIMENSION];
+	int m3[N][N];
 	
 	multiplication_matrice(m1, m2, m3);
 	afficher_matrice(m3);
