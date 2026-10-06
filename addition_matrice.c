@@ -9,8 +9,8 @@ Historique des modifications
 --------------------------------------------------------------------*/
 
 #include <stdio.h>
-#define LIGNES 4
-#define COLONNES 6
+#define LIGNES 3
+#define COLONNES 2
 
 /*--------------------------------------------------------------------
 Description: Additionne les 2 premieres matrices passees en parametre
@@ -33,7 +33,7 @@ void addition_matrice(int mat_1[LIGNES][COLONNES], int mat_2[LIGNES][COLONNES], 
 	int m, n;
 	
 	for (m = 0; m < LIGNES; ++m)
-	{m
+	{
 		for (n = 0; n < COLONNES; ++n) 
 		{
 			somme[m][n] = mat_1[m][n] + mat_2[m][n];
@@ -67,18 +67,25 @@ void afficher_matrice(int m[LIGNES][COLONNES])
 
 int main(int argc, char **argv)
 {
-	int m1[LIGNES][COLONNES] = {{1, 1, 1, 1, 1, 1},
-								{2, 2, 2, 2, 2, 2},
-								{3, 3, 3, 3, 3, 3},
-								{4, 4, 4, 4, 4, 4}};
-								
-	int m2[LIGNES][COLONNES] = {{1, 1, 1, 1, 1, 1},
-								{2, 2, 2, 2, 2, 2},
-								{3, 3, 3, 3, 3, 3},
-								{4, 4, 4, 4, 4, 4}};
-	int m3[LIGNES][COLONNES];
 	
+	int m1[LIGNES][COLONNES] = {{1, 2},
+								{3, 4},
+								{5, 6}};
+								
+	int m2[LIGNES][COLONNES] = {{6, 5},
+								{4, 3},
+								{2, 1}};
+
+	int m3[LIGNES][COLONNES];
+
 	addition_matrice(m1, m2, m3);
+	
+	printf("Tests de validation de la fonction additionner_matrice\n\n");
+	printf("Matrice A\n");
+	afficher_matrice(m1);
+	printf("\nMatrice B\n");
+	afficher_matrice(m2);	
+	printf("\nResultat\n");
 	afficher_matrice(m3);
 	
 	return 0;

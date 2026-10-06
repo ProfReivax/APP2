@@ -9,7 +9,12 @@ Historique des modifications
 --------------------------------------------------------------------*/
 
 #include <stdio.h>
-#define ITERATIONS 7
+#include <math.h>
+#define ITERATIONS 5
+
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
 
 /*--------------------------------------------------------------------
 Description: Calcule la puissance n du nombre x passe en parametre.
@@ -91,8 +96,24 @@ double cosinus(float angle)
 
 int main(int argc, char **argv)
 {
-	float x = cosinus(2);
-	printf("%f", x); 
+	printf("Tests de validation de la fonction cosinus\nCalcule fait avec %d termes\n\n", ITERATIONS);
+	
+	printf("Valeur\t\t\tValeur exacte\t\tResultat\n");
+	// cosinus(1)
+	printf("1\t\t\t0.5403\t\t\t%f\n", cosinus(1));
+	// cosinus(0)
+	printf("0\t\t\t1.00\t\t\t%f\n", cosinus(0));
+	// cosinus(pi/4)
+	printf("pi/4\t\t\t0.7071\t\t\t%f\n", cosinus(M_PI/4));
+	// cosinus(pi/2)
+	printf("pi/2\t\t\t0.00\t\t\t%f\n", cosinus(M_PI/2));
+	// cosinus(-pi/2)
+	printf("pi/2\t\t\t0.00\t\t\t%f\n", cosinus(-M_PI/2));
+	// cosinus(-pi)
+	printf("-pi\t\t\t-1.00\t\t\t%f\n", cosinus(-M_PI));
+	// cosinus(pi)
+	printf("pi\t\t\t-1.00\t\t\t%f\n", cosinus(M_PI));
+
 	return 0;
 }
 

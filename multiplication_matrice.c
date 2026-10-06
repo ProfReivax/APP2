@@ -77,17 +77,49 @@ void afficher_matrice(int m[N][N])
 int main(int argc, char **argv)
 {
 	int m1[N][N] = {{1, 1, 1, 1},
-									{2, 2, 2, 2},
-									{3, 3, 3, 3},
-									{4, 4, 4, 4}};
+					{2, 2, 2, 2},
+					{3, 3, 3, 3},
+					{4, 4, 4, 4}};
 								
-	int m2[N][N] = {{1, 1, 1, 1},
-									{2, 2, 2, 2},
-									{3, 3, 3, 3},
-									{4, 4, 4, 4}};
+	int m2[N][N] = {{4, 4, 4, 4},
+					{3, 3, 3, 3},
+					{2, 2, 2, 2},
+					{1, 1, 1, 1}};
+
+	int i[N][N] =  {{1, 0, 0, 0},
+					{0, 1, 0, 0},
+					{0, 0, 1, 0},
+					{0, 0, 0, 1}};
+					
+	int resultat[N][N] = {	{10, 10, 10, 10},
+							{20, 20, 20, 20},
+							{30, 30, 30, 30},
+							{40, 40, 40, 40}};
 	int m3[N][N];
 	
 	multiplication_matrice(m1, m2, m3);
+	printf("Tests de validation de la fonction multiplication_matrice\n\n");
+	// multiplication de 2 matrices
+	printf("Multiplication de 2 matrices quelconques\n");
+	printf("Matrice A\n");
+	afficher_matrice(m1);
+	printf("\nMatrice B\n");
+	afficher_matrice(m2);
+	printf("\nAttendue\n");
+	afficher_matrice(resultat);
+	printf("\nResultat\n");
+	afficher_matrice(m3);
+	
+	multiplication_matrice(m1, i, m3);
+	// multiplication de la matrice identite
+	printf("\nMultiplication avec la matrice identite\n");
+	printf("Matrice A\n");
+	afficher_matrice(m1);
+	printf("\nMatrice identite\n");
+	afficher_matrice(i);
+	printf("\nAttendu\n");
+	afficher_matrice(m1);
+	printf("\nResultat\n");
 	afficher_matrice(m3);
 	
 	return 0;

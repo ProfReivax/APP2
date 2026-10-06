@@ -49,16 +49,30 @@ int palindrome(char chaine_caractere[])
 
 int main(int argc, char **argv)
 {
-	// palindrome pair
+	char palindrome_1[100] = "kayak";
+	char palindrome_2[100] = "abcaa";
+	char palindrome_3[100] = "wwuuww";
+	char palindrome_4[100] = "gghhgl";
+	char palindrome_5[100] = "a";
+	char palindrome_6[100] = "";
+
 	
-	// palindrome impair
-	
-	// 1 lettre
-	
-	// 0 lettres
-	char chaine_caractere[100] = "abaaba";
-	int palindrome_val = palindrome(chaine_caractere);
-	printf("position : %d", palindrome_val);
+	printf("Tests de validation de la fonction palindrome\n\n");
+	printf("Chaine\t\tAttendu\t\tRésultat\n");
+	// cas palindrome pair, reussite
+	printf("%s\t\t1\t\t%d\n", palindrome_1, palindrome(palindrome_1));
+	// cas palindrome pair, echec
+	printf("%s\t\t0\t\t%d\n", palindrome_2, palindrome(palindrome_2));
+	// cas palindrome pair, reussite
+	printf("%s\t\t1\t\t%d\n", palindrome_3, palindrome(palindrome_3));
+	// cas palindrome pair, echec
+	printf("%s\t\t0\t\t%d\n", palindrome_4, palindrome(palindrome_4));
+	// cas palindrome 1 lettre
+	printf("%s\t\t1\t\t%d\n", palindrome_5, palindrome(palindrome_5));
+	// cas palindrome vide
+	printf("%s\t\t1\t\t%d\n", palindrome_6, palindrome(palindrome_6));
+
+
 	return 0;
 }
 

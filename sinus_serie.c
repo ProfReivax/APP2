@@ -9,7 +9,12 @@ Historique des modifications
 --------------------------------------------------------------------*/
 
 #include <stdio.h>
-#define ITERATIONS 7
+#include <math.h>
+#define ITERATIONS 5
+
+#ifndef M_PI
+#define M_PI 3.14159265358979323846
+#endif
 
 /*--------------------------------------------------------------------
 Description: Calcule la puissance n du nombre x passe en parametre.
@@ -79,7 +84,6 @@ Postconditions: retourne une approximation sin(angle)
 double sinus(float angle)
 {
 	double resultat = 0;
-	double resultat = 0;
 	int compteur;
 	
 	for (compteur = 0; compteur < ITERATIONS; ++compteur)
@@ -92,8 +96,24 @@ double sinus(float angle)
 
 int main(int argc, char **argv)
 {
-	float x = sinus(2);
-	printf("%f", x); 
+	printf("Tests de validation de la fonction sinus\nCalcule fait avec %d termes\n\n", ITERATIONS);
+	
+	printf("Valeur\t\t\tValeur exacte\t\tRésultat\n");
+	// sinus(1)
+	printf("1\t\t\t0.8415\t\t\t%f\n", sinus(1));
+	// sinus(0)
+	printf("0\t\t\t0.00\t\t\t%f\n", sinus(0));
+	// sinus(pi/4)
+	printf("pi/4\t\t\t0.7071\t\t\t%f\n", sinus(M_PI/4));
+	// sinus(pi/2)
+	printf("pi/2\t\t\t1.00\t\t\t%f\n", sinus(M_PI/2));
+	// sinus(-pi/2)
+	printf("pi/2\t\t\t-1.00\t\t\t%f\n", sinus(-M_PI/2));
+	// sinus(-pi)
+	printf("-pi\t\t\t0.00\t\t\t%f\n", sinus(-M_PI));
+	// sinus(pi)
+	printf("pi\t\t\t0.00\t\t\t%f\n", sinus(M_PI));
+
 	return 0;
 }
 

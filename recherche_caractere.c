@@ -51,19 +51,29 @@ int recherche_caractere(char caractere, char chaine_caractere[])
 
 int main(int argc, char **argv)
 {
-	// trouve
-	
-	// trouve + 1
-	
-	// pas trouve
-	
-	// pas trouve majuscule
-	
-	// chaine vide
-	
-	char chaine_caractere[100] = "Bonjour les amis";
-	int position = recherche_caractere('a', chaine_caractere);
-	printf("position : %d", position);
+	char chaine_caractere_1[100] = "anticonstitutionnellement";
+	char chaine_caractere_2[100] = "bonjour";
+	char chaine_caractere_3[100] = "allocommentcava";
+	char chaine_caractere_4[100] = "";
+	char chaine_caractere_5[100] = "majUscUle";
+
+	printf("Tests de validation de la fonction recherche_caractere\n\n");
+	printf("Chaine\t\t\t\tCaractère\tAttendu\t\tRésultat\n");
+	// cas anticonstitutionnellement, plusieurs fois la meme lettre
+	printf("%s\t%c\t\t4\t\t%d\n", chaine_caractere_1, 'n', recherche_caractere('c', chaine_caractere_1));
+	// cas bonjour, aucune lettre trouvee
+	printf("%s\t\t\t\t%c\t\t-1\t\t%d\n", chaine_caractere_2, 'e', recherche_caractere('e', chaine_caractere_2));
+	// cas bonjour, lettre trouvee a la fin de la chaine (6)
+	printf("%s\t\t\t\t%c\t\t6\t\t%d\n", chaine_caractere_2, 'r', recherche_caractere('r', chaine_caractere_2));
+	// cas allocommentcava, lettre trouvee a la pos 0
+	printf("%s\t\t\t%c\t\t0\t\t%d\n", chaine_caractere_3, 'a', recherche_caractere('a', chaine_caractere_3));
+	// cas chaine vide, trouve rien
+	printf("%s\t\t\t\t%c\t\t-1\t\t%d\n", chaine_caractere_4, 'z', recherche_caractere('z', chaine_caractere_3));
+	// cas recherche de majuscule
+	printf("%s\t\t\t%c\t\t3\t\t%d\n", chaine_caractere_5, 'U', recherche_caractere('U', chaine_caractere_5));
+	// cas recherche de majuscule
+	printf("%s\t\t\t%c\t\t-1\t\t%d\n", chaine_caractere_5, 'u', recherche_caractere('u', chaine_caractere_5));
+
 	return 0;
 }
 
