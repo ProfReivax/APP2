@@ -60,7 +60,7 @@ int main(int argc, char **argv)
 	printf("Tests de validation de la fonction recherche_caractere\n\n");
 	printf("Chaine\t\t\t\tCaractère\tAttendu\t\tRésultat\n");
 	// cas anticonstitutionnellement, plusieurs fois la meme lettre
-	printf("%s\t%c\t\t4\t\t%d\n", chaine_caractere_1, 'n', recherche_caractere('c', chaine_caractere_1));
+	printf("%s\t%c\t\t1\t\t%d\n", chaine_caractere_1, 'n', recherche_caractere('n', chaine_caractere_1));
 	// cas bonjour, aucune lettre trouvee
 	printf("%s\t\t\t\t%c\t\t-1\t\t%d\n", chaine_caractere_2, 'e', recherche_caractere('e', chaine_caractere_2));
 	// cas bonjour, lettre trouvee a la fin de la chaine (6)
