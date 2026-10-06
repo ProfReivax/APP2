@@ -74,7 +74,23 @@ int main(int argc, char **argv)
 								
 	int m2[LIGNES][COLONNES] = {{6, 5},
 								{4, 3},
-								{2, 1}};
+								{2, 1}};						
+	
+	int zero[LIGNES][COLONNES] = {	{0, 0},
+									{0, 0},
+									{0, 0}};
+								
+	int negative[LIGNES][COLONNES] = {	{-1, -1},
+										{-1, -1},
+										{-1, -1}};
+										
+	int attendue1[LIGNES][COLONNES] = {	{7, 7},
+										{7, 7},
+										{7, 7}};
+	
+	int attendue2[LIGNES][COLONNES] = {	{0, 1},
+										{2, 3},
+										{4, 5}};
 
 	int m3[LIGNES][COLONNES];
 
@@ -84,7 +100,34 @@ int main(int argc, char **argv)
 	printf("Matrice A\n");
 	afficher_matrice(m1);
 	printf("\nMatrice B\n");
-	afficher_matrice(m2);	
+	afficher_matrice(m2);
+	printf("\nAttendue\n");
+	afficher_matrice(attendue1);
+	printf("\nResultat\n");
+	afficher_matrice(m3);
+	
+	addition_matrice(m1, zero, m3);
+
+	printf("Tests de validation de la fonction additionner_matrice\n\n");
+	printf("Matrice A\n");
+	afficher_matrice(m1);
+	printf("\nMatrice B\n");
+	afficher_matrice(zero);
+	printf("\nAttendue\n");
+	afficher_matrice(m1);
+	printf("\nResultat\n");
+	afficher_matrice(m3);
+	
+		
+	addition_matrice(m1, negative, m3);
+
+	printf("Tests de validation de la fonction additionner_matrice\n\n");
+	printf("Matrice A\n");
+	afficher_matrice(m1);
+	printf("\nMatrice B\n");
+	afficher_matrice(negative);
+	printf("\nAttendue\n");
+	afficher_matrice(attendue2);
 	printf("\nResultat\n");
 	afficher_matrice(m3);
 	
